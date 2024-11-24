@@ -23,26 +23,7 @@ It also uses TypeScript (TS/TSX) instead of JavaScript to make the code safer an
   - Provides navigation to the checkout page.
 
 ## Project Structure
-src/
-  components/
-    header/
-      Header.tsx            # Global header with cart info
-    product/
-      ProductCard.tsx       # Card component for product list
-  pages/
-    checkout/
-      CheckoutPage.tsx      # Checkout page displaying cart summary
-    productDetail/
-      ProductDetailsPage.tsx  # Detailed view of a selected product
-    productList/
-      ProductListPage.tsx   # Default landing page with product list
-  store/
-    cart/
-      cartSlice.ts          # Redux slice for cart logic
-    store.ts                # Central Redux store
-  App.tsx                   # App component with routes
-  index.tsx                 # Entry point
-
+![image](https://github.com/user-attachments/assets/000d877c-7728-474a-8505-1e2c9aca9ee2)
 
 ## Getting Started
 ### Installation
