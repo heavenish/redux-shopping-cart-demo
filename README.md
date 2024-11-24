@@ -29,7 +29,7 @@ It also uses TypeScript (TS/TSX) instead of JavaScript to make the code safer an
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/heavenish/redux-shopping-cart-demo.git
    cd shopping-cart
 
 2. Install Dependencies:
