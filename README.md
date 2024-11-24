@@ -1,46 +1,58 @@
-# Getting Started with Create React App
+# Purpose
+This app shows how using Redux makes managing shared state (like a shopping cart) easier compared to passing props everywhere in non-Redux setups. It keeps things organized, avoids messy code, and even remembers your cart during a session. Perfect for understanding why Redux is useful in React apps
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+It also uses TypeScript (TS/TSX) instead of JavaScript to make the code safer and easier to work with. TypeScript helps catch errors early, ensures everything is clearly defined (like the shape of the cart or products), and improves readability—especially in a collaborative or large project.
 
-## Available Scripts
+## Features
+- **Product List Page**:
+  - Displays a list of available products.
+  - Users can add products to the cart.
+  - Cart updates dynamically and shows the total item count in the header.
 
-In the project directory, you can run:
+- **Product Details Page**:
+  - View detailed information about a selected product.
+  - Add the product to the cart directly from the details page.
 
-### `npm start`
+- **Checkout Page**:
+  - Displays a summary of cart items with their quantities.
+  - Allows users to adjust item quantities.
+  - Dynamically updates the total price of items in the cart.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Global Header**:
+  - Shows the shopping cart icon with the total item count.
+  - Provides navigation to the checkout page.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Project Structure
+src/
+  components/
+    header/
+      Header.tsx            # Global header with cart info
+    product/
+      ProductCard.tsx       # Card component for product list
+  pages/
+    checkout/
+      CheckoutPage.tsx      # Checkout page displaying cart summary
+    productDetail/
+      ProductDetailsPage.tsx  # Detailed view of a selected product
+    productList/
+      ProductListPage.tsx   # Default landing page with product list
+  store/
+    cart/
+      cartSlice.ts          # Redux slice for cart logic
+    store.ts                # Central Redux store
+  App.tsx                   # App component with routes
+  index.tsx                 # Entry point
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd shopping-cart
 
-### `npm run build`
+2. Install Dependencies:
+npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Run the Application:
+npm start
