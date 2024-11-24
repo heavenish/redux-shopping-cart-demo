@@ -1,19 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react"; 
+// Core React library for building UI components
+import ReactDOM from "react-dom/client"; 
+// ReactDOM is used to render the React application to the DOM
+import { Provider } from "react-redux"; 
+// Provider makes the Redux store available to the React app
+import { BrowserRouter } from "react-router-dom"; 
+// BrowserRouter provides routing functionality to enable navigation between pages
+import { store } from "./store/store"; 
+// Import the Redux store, which holds the global state
+import App from "./App"; 
+// Main application component
+import "./index.css"; 
+// Import global CSS styles for the application
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+// Create the root DOM node where the React app will be rendered
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
+
 root.render(
   <React.StrictMode>
-    <App />
+    {/* Wrap the application with the Redux Provider */}
+    <Provider store={store}>
+      {/* Wrap the application with BrowserRouter for routing */}
+      <BrowserRouter>
+        {/* Render the main application component */}
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
