@@ -1,25 +1,28 @@
 import React from "react";
-import { useSelector } from "react-redux"; // Hook to access Redux state
-import { RootState } from "../../store/store"; // Type definition for the global Redux state
 import { Link } from "react-router-dom"; // Link component for navigation
+// import { useSelector } from "react-redux"; // TODO: Uncomment this to access the Redux store
+// import { RootState } from "../../store/store"; // TODO: Import RootState type for TypeScript
 
 // Header Component: Displays the app title and shopping cart with total item count
 const Header: React.FC = () => {
-  // Select the cart items from the Redux store using the `useSelector` hook
-  const cartItems = useSelector((state: RootState) => state.cart.items);
+  // TODO: 
+  // 1️⃣ Use useSelector to access cart items from the Redux store.
+  // 2️⃣ Calculate totalQuantity by summing the quantity of all cart items.
+  
+  // Example (students need to uncomment and complete the logic):
+  // const cartItems = useSelector((state: RootState) => state.cart.items);
+  // const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
-  // Calculate the total quantity of items in the cart by summing the quantities
-  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const totalQuantity = 0; // TODO: Replace this with the actual total from the Redux store
 
   return (
     <header
       style={{
-        // Header layout styles
         display: "flex",
-        justifyContent: "space-between", // Space out the title and cart icon
-        alignItems: "center", // Vertically align items in the center
-        padding: "1rem", // Padding around the header
-        borderBottom: "1px solid #ccc", // Border at the bottom for separation
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "1rem",
+        borderBottom: "1px solid #ccc",
       }}
     >
       {/* Link to navigate back to the homepage (/) */}
@@ -31,9 +34,9 @@ const Header: React.FC = () => {
       <Link to="/checkout" style={{ textDecoration: "none", color: "inherit" }}>
         <div
           style={{
-            position: "relative", // Needed to position the badge correctly
-            display: "flex", // Flexbox for aligning the icon and badge
-            alignItems: "center", // Align icon and badge vertically
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
           }}
         >
           {/* Shopping cart emoji as the icon */}
@@ -41,12 +44,12 @@ const Header: React.FC = () => {
           {/* Badge showing the total number of items in the cart */}
           <span
             style={{
-              marginLeft: "0.5rem", // Space between the icon and the badge
-              background: "green", // Badge background color
-              color: "white", // Badge text color
-              borderRadius: "50%", // Circular shape for the badge
-              padding: "0.2rem 0.5rem", // Inner spacing of the badge
-              fontSize: "0.8rem", // Font size for the badge text
+              marginLeft: "0.5rem",
+              background: "green",
+              color: "white",
+              borderRadius: "50%",
+              padding: "0.2rem 0.5rem",
+              fontSize: "0.8rem",
             }}
           >
             {totalQuantity} {/* Display the total quantity */}

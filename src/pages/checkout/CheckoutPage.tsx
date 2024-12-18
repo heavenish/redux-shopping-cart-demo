@@ -1,21 +1,33 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux"; // Hooks for accessing and modifying Redux state
-import { RootState } from "../../store/store"; // Type definition for the global Redux state
-import { updateQuantity, clearCart } from "../../store/cart/cartSlice"; // Redux action for updating item quantities in the cart
+// import { useSelector, useDispatch } from "react-redux"; // Hooks for accessing and modifying Redux state
+import { useDispatch } from "react-redux"; // Hooks for accessing and modifying Redux state
+// import { RootState } from "../../store/store"; // Type definition for the global Redux state
+// import { updateQuantity, clearCart } from "../../store/cart/cartSlice"; // Redux action for updating item quantities in the cart
+import { clearCart } from "../../store/cart/cartSlice"; // Redux action for updating item quantities in the cart
 
 // CheckoutPage Component: Displays a summary of items in the cart, their quantities, and the total price
 const CheckoutPage: React.FC = () => {
+  // TODO:
+  // - Use useSelector to get cart items from the Redux store
+  // Example:
   // Select cart items from the Redux store using the `useSelector` hook
-  const cartItems = useSelector((state: RootState) => state.cart.items);
+  // const cartItems = useSelector((state: RootState) => state.cart.items);
+
+  const cartItems: any[] = []; // Replace this with the actual cart items from the Redux store
 
   // Hook to dispatch actions to the Redux store
   const dispatch = useDispatch();
 
+  // TODO: 
+  // - Calculate the total price using the items in the cart
+  // Example:
   // Calculate the total price of all items in the cart
-  const totalPrice = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity, // Multiply price by quantity for each item
-    0 // Start the sum at 0
-  );
+  // const totalPrice = cartItems.reduce(
+    // (sum, item) => sum + item.price * item.quantity, // Multiply price by quantity for each item
+    // 0 // Start the sum at 0
+  // );
+
+  const totalPrice = 0; // TODO: Replace this with logic to calculate total price
 
   return (
     <div
@@ -57,15 +69,19 @@ const CheckoutPage: React.FC = () => {
                   type="number" // Numeric input field
                   min="1" // Minimum value is 1
                   value={item.quantity} // Bind the current quantity of the item
-                  onChange={(e) =>
+                  onChange={(e) =>{
+                    // TODO: 
+                    // - Dispatch an action to update the quantity of this item in the store
+                    // - Use dispatch to send an updateQuantity action with the item ID and new quantit
+                    
                     // Dispatch an action to update the quantity in Redux state
-                    dispatch(
-                      updateQuantity({
-                        id: item.id, // Item ID to identify which product to update
-                        quantity: Number(e.target.value), // New quantity from the input
-                      })
-                    )
-                  }
+                    // dispatch(
+                    //   updateQuantity({
+                    //     id: item.id, // Item ID to identify which product to update
+                    //     quantity: Number(e.target.value), // New quantity from the input
+                    //   })
+                    // )
+                  }}
                   style={{
                     marginLeft: "0.5rem", // Space between label and input
                     width: "50px", // Set input width

@@ -41,15 +41,15 @@ const cartSlice = createSlice({
     },
 
     // Update item quantity
-    updateQuantity: (state, action: PayloadAction<{ id: number; quantity: number }>) => {
-      const { id, quantity } = action.payload;
-      const item = state.items.find((item) => item.id === id);
-      if (item) {
-        item.quantity = quantity;
-      }
-      // Save the updated cart to localStorage
-      localStorage.setItem("cart", JSON.stringify(state.items));
-    },
+    // updateQuantity: (state, action: PayloadAction<{ id: number; quantity: number }>) => {
+    //   const { id, quantity } = action.payload;
+    //   const item = state.items.find((item) => item.id === id);
+    //   if (item) {
+    //     item.quantity = quantity;
+    //   }
+    //   // Save the updated cart to localStorage
+    //   localStorage.setItem("cart", JSON.stringify(state.items));
+    // },
 
     // Clear the cart
     clearCart: (state) => {
@@ -61,7 +61,8 @@ const cartSlice = createSlice({
 });
 
 // Export actions for use in components
-export const { addToCart, updateQuantity, clearCart } = cartSlice.actions;
+// export const { addToCart, clearCart } = cartSlice.actions;
+export const { addToCart, clearCart } = cartSlice.actions;
 
 // Export reducer to be added to the store
 export default cartSlice.reducer;
